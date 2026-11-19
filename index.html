@@ -4,264 +4,255 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Personal portfolio of Your Name, Finance Student.">
-  <title>Minh Ngoc | Finance Student</title>
+  <title>Your Name | Finance Student</title>
   <style>
     :root {
-      --navy: #142b4a;
-      --navy-2: #203d60;
-      --ink: #1e293b;
-      --muted: #64748b;
-      --line: #e5eaf1;
-      --paper: #ffffff;
-      --soft: #f5f8fc;
-      --accent: #dce8f5;
-      --radius: 18px;
-      --shadow: 0 18px 45px rgba(20, 43, 74, .08);
+      --navy:#142b4a; --navy2:#203d60; --ink:#243247; --muted:#68778b;
+      --line:#e5eaf1; --paper:#fff; --soft:#f5f8fc; --accent:#eaf1f8;
+      --shadow:0 18px 45px rgba(20,43,74,.08); --radius:18px;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.65;
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(1080px,calc(100% - 40px));margin:0 auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{color:var(--navy);font-weight:850;letter-spacing:.08em;font-size:.98rem}
+    .nav-links{display:flex;align-items:center;gap:7px}
+    .tab-link{border:0;background:transparent;color:#5b6b80;padding:10px 13px;border-radius:999px;font-size:.88rem;font-weight:700;cursor:pointer;transition:.2s}
+    .tab-link:hover{background:var(--soft);color:var(--navy)}
+    .tab-link[aria-selected="true"]{background:var(--navy);color:#fff}
+    .menu-button{display:none;border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:10px;padding:8px 12px;cursor:pointer}
+    main{min-height:calc(100vh - 145px)}
+    .tab-panel{display:none;animation:fadeIn .28s ease}
+    .tab-panel.active{display:block}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+    .hero{padding:92px 0 82px;background:linear-gradient(135deg,#f8fbff 0%,#fff 65%)}
+    .hero-grid{display:grid;grid-template-columns:1.35fr .65fr;align-items:center;gap:64px}
+    .eyebrow{color:#58769a;font-size:.74rem;font-weight:850;letter-spacing:.18em;text-transform:uppercase}
+    h1{margin:15px 0 10px;color:var(--navy);font-size:clamp(3rem,7vw,5.2rem);line-height:1.02;letter-spacing:-.055em}
+    .hero h2{margin:0;color:var(--navy2);font-size:clamp(1.15rem,2.3vw,1.55rem);font-weight:600}
+    .hero-copy{max-width:580px;margin:22px 0 28px;color:var(--muted);font-size:1.03rem}
+    .actions{display:flex;flex-wrap:wrap;gap:12px}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:0 19px;border:1px solid var(--navy);border-radius:999px;font-weight:750;font-size:.88rem;cursor:pointer;transition:.2s}
+    .button:hover{transform:translateY(-2px)}
+    .button.primary{background:var(--navy);color:#fff}
+    .button.secondary{background:#fff;color:var(--navy)}
+    .profile-card{padding:28px;border:1px solid #e6edf5;border-radius:26px;background:#fff;box-shadow:var(--shadow)}
+    .monogram{width:100%;aspect-ratio:1;display:grid;place-items:center;border-radius:20px;background:linear-gradient(145deg,#e8f0f9,#f7faff);color:var(--navy);font-size:clamp(4rem,9vw,6rem);font-weight:850;letter-spacing:-.08em}
+    .profile-caption{margin:16px 0 0;color:var(--muted);text-align:center;font-size:.86rem}
+    .page-section{padding:76px 0 88px}
+    .page-section.soft{background:var(--soft)}
+    .section-heading{margin-bottom:32px}
+    .section-heading .eyebrow{margin-bottom:8px}
+    h2.section-title{margin:0;color:var(--navy);font-size:clamp(2rem,4vw,2.6rem);letter-spacing:-.04em;line-height:1.15}
+    .section-intro{max-width:680px;color:var(--muted);margin:13px 0 0}
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start}
+    .about-copy p{margin-top:0;color:#59677a}
+    .focus-card,.info-card,.project-card,.skill-card{padding:25px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+    .focus-card h3,.info-card h3,.project-card h3,.skill-card h3{margin:0 0 12px;color:var(--navy);font-size:1.05rem}
+    .tag-list{display:flex;flex-wrap:wrap;gap:9px}
+    .tag{padding:7px 12px;border-radius:999px;background:#eef4fb;color:#385575;font-size:.82rem;font-weight:700}
+    .timeline{display:grid;gap:14px}
+    .timeline-item{display:grid;grid-template-columns:150px 1fr;gap:25px;padding:22px 0;border-bottom:1px solid var(--line)}
+    .timeline-date{color:#6c829d;font-size:.88rem;font-weight:750}
+    .timeline-item h3{margin:0 0 5px;color:var(--navy);font-size:1.06rem}
+    .timeline-item p{margin:0;color:var(--muted);font-size:.94rem}
+    .project-grid,.research-grid,.skills-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .project-card,.info-card,.skill-card{transition:transform .2s,box-shadow .2s}
+    .project-card:hover,.info-card:hover,.skill-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+    .card-number{color:#8ba2bd;font-size:.77rem;font-weight:850;letter-spacing:.13em}
+    .project-card h3{margin:12px 0 8px;font-size:1.12rem}
+    .project-card p,.info-card p,.skill-card p{margin:0 0 15px;color:var(--muted);font-size:.93rem}
+    .project-meta{color:#58769a;font-size:.8rem;font-weight:750}
+    .skill-card h3{margin-bottom:14px}
+    .skill-card p{margin-top:14px;margin-bottom:0}
+    .contact-panel{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:32px;border-radius:23px;background:var(--navy);color:#fff}
+    .contact-panel h2{margin:0 0 7px;font-size:clamp(1.55rem,3vw,2.1rem);letter-spacing:-.035em}
+    .contact-panel p{margin:0;color:#c6d3e2}
+    .contact-panel .button{border-color:#fff;background:#fff;color:var(--navy);white-space:nowrap}
+    .note{margin-top:24px;padding:14px 16px;border-left:3px solid #9bb4d0;background:#f7faff;color:#66778c;font-size:.88rem}
+    footer{padding:24px 0;border-top:1px solid var(--line);color:#8190a3;font-size:.83rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    @media(max-width:780px){
+      .menu-button{display:inline-flex}
+      .nav{position:relative}
+      .nav-links{display:none;position:absolute;top:71px;left:-20px;right:-20px;padding:14px 20px 18px;flex-direction:column;align-items:stretch;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 14px 22px rgba(20,43,74,.06)}
+      .nav-links.open{display:flex}
+      .tab-link{text-align:left;border-radius:10px}
+      .hero{padding:68px 0 60px}
+      .hero-grid,.about-grid{grid-template-columns:1fr;gap:30px}
+      .profile-card{max-width:270px}
+      .page-section{padding:60px 0 68px}
+      .timeline-item{grid-template-columns:1fr;gap:4px}
+      .project-grid,.research-grid,.skills-grid{grid-template-columns:1fr}
+      .contact-panel{align-items:flex-start;flex-direction:column;padding:26px}
     }
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(1080px, calc(100% - 40px)); margin: 0 auto; }
-    header {
-      position: sticky; top: 0; z-index: 20;
-      background: rgba(255,255,255,.92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(229,234,241,.85);
-    }
-    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { color: var(--navy); font-size: 1rem; font-weight: 800; letter-spacing: .08em; }
-    .nav-links { display: flex; align-items: center; gap: 28px; }
-    .nav-links a { color: #526176; font-size: .9rem; font-weight: 600; transition: color .2s; }
-    .nav-links a:hover { color: var(--navy); }
-    .menu-button { display: none; border: 1px solid var(--line); background: white; color: var(--navy); border-radius: 10px; padding: 8px 12px; font: inherit; }
-    .hero { padding: 104px 0 88px; background: linear-gradient(135deg, #f8fbff 0%, #fff 62%); }
-    .hero-grid { display: grid; grid-template-columns: 1.35fr .65fr; align-items: center; gap: 64px; }
-    .eyebrow { color: #58769a; font-size: .76rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
-    h1 { margin: 16px 0 12px; color: var(--navy); font-size: clamp(3rem, 7vw, 5.4rem); line-height: 1.02; letter-spacing: -.055em; }
-    .hero h2 { margin: 0; color: var(--navy-2); font-size: clamp(1.15rem, 2.3vw, 1.55rem); font-weight: 550; }
-    .hero-copy { max-width: 570px; margin: 22px 0 30px; color: var(--muted); font-size: 1.04rem; }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; border: 1px solid var(--navy); border-radius: 999px; font-weight: 700; font-size: .9rem; transition: transform .2s, background .2s; }
-    .button:hover { transform: translateY(-2px); }
-    .button.primary { color: white; background: var(--navy); }
-    .button.secondary { color: var(--navy); background: white; }
-    .profile-card { position: relative; padding: 30px; border: 1px solid #e6edf5; border-radius: 28px; background: white; box-shadow: var(--shadow); }
-    .monogram { width: 100%; aspect-ratio: 1 / 1; display: grid; place-items: center; border-radius: 22px; background: linear-gradient(145deg, #e8f0f9, #f7faff); color: var(--navy); font-size: clamp(4rem, 9vw, 6.5rem); font-weight: 800; letter-spacing: -.08em; }
-    .profile-caption { margin: 18px 0 0; color: var(--muted); text-align: center; font-size: .88rem; }
-    section { padding: 86px 0; }
-    section.soft { background: var(--soft); }
-    .section-heading { margin-bottom: 34px; }
-    .section-heading .eyebrow { margin-bottom: 8px; }
-    h3.section-title { margin: 0; color: var(--navy); font-size: clamp(2rem, 4vw, 2.65rem); letter-spacing: -.04em; line-height: 1.15; }
-    .section-intro { max-width: 650px; color: var(--muted); margin: 14px 0 0; }
-    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: start; }
-    .about-copy p { margin-top: 0; color: #59677a; }
-    .focus-card { padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: white; }
-    .focus-card h4 { margin: 0 0 16px; color: var(--navy); font-size: 1rem; }
-    .tag-list { display: flex; flex-wrap: wrap; gap: 9px; }
-    .tag { padding: 7px 12px; border-radius: 999px; background: #eef4fb; color: #385575; font-size: .82rem; font-weight: 650; }
-    .timeline { display: grid; gap: 16px; }
-    .timeline-item { display: grid; grid-template-columns: 150px 1fr; gap: 26px; padding: 24px 0; border-bottom: 1px solid var(--line); }
-    .timeline-date { color: #6c829d; font-size: .88rem; font-weight: 750; }
-    .timeline-item h4 { margin: 0 0 5px; color: var(--navy); font-size: 1.08rem; }
-    .timeline-item p { margin: 0; color: var(--muted); font-size: .94rem; }
-    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .project-card { padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: white; transition: transform .2s, box-shadow .2s; }
-    .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-    .project-number { color: #8ba2bd; font-size: .8rem; font-weight: 800; letter-spacing: .12em; }
-    .project-card h4 { margin: 13px 0 8px; color: var(--navy); font-size: 1.18rem; }
-    .project-card p { margin: 0 0 18px; color: var(--muted); font-size: .93rem; }
-    .project-meta { color: #58769a; font-size: .8rem; font-weight: 750; }
-    .contact-panel { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 34px; border-radius: 24px; background: var(--navy); color: white; }
-    .contact-panel h3 { margin: 0 0 8px; font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -.035em; }
-    .contact-panel p { margin: 0; color: #c6d3e2; }
-    .contact-panel .button { border-color: white; background: white; color: var(--navy); white-space: nowrap; }
-    footer { padding: 26px 0; border-top: 1px solid var(--line); color: #8190a3; font-size: .84rem; }
-    .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-    @media (max-width: 760px) {
-      .menu-button { display: inline-flex; }
-      .nav-links { display: none; position: absolute; top: 71px; left: 0; right: 0; padding: 18px 22px 22px; flex-direction: column; align-items: flex-start; gap: 16px; background: white; border-bottom: 1px solid var(--line); }
-      .nav-links.open { display: flex; }
-      .hero { padding: 72px 0 64px; }
-      .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 34px; }
-      .profile-card { max-width: 300px; }
-      section { padding: 66px 0; }
-      .timeline-item { grid-template-columns: 1fr; gap: 5px; }
-      .project-grid { grid-template-columns: 1fr; }
-      .contact-panel { align-items: flex-start; flex-direction: column; padding: 28px; }
-    }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <a class="brand" href="#home">YOUR NAME<span style="color:#91a9c5">.</span></a>
-      <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">Menu</button>
-      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-        <a href="#about">About Me</a>
-        <a href="#education">Education</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+      <a class="brand" href="#home" data-tab-link="home">YOUR NAME<span style="color:#91a9c5">.</span></a>
+      <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">Menu ☰</button>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation" role="tablist">
+        <button class="tab-link" type="button" role="tab" data-tab="home" aria-selected="true">Home</button>
+        <button class="tab-link" type="button" role="tab" data-tab="about" aria-selected="false">About Me</button>
+        <button class="tab-link" type="button" role="tab" data-tab="education" aria-selected="false">Education</button>
+        <button class="tab-link" type="button" role="tab" data-tab="projects" aria-selected="false">Projects</button>
+        <button class="tab-link" type="button" role="tab" data-tab="research" aria-selected="false">Research</button>
+        <button class="tab-link" type="button" role="tab" data-tab="skills" aria-selected="false">Skills</button>
+        <button class="tab-link" type="button" role="tab" data-tab="contact" aria-selected="false">Contact</button>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Welcome to my personal sapce</div>
-          <h1>Your Name.</h1>
-          <h2>Finance Student</h2>
-          <p class="hero-copy">I am interested in financial markets, applied economics, and data-driven research. This is a space to share my academic journey, projects, and ideas.</p>
-          <div class="actions">
-            <a class="button primary" href="#projects">Explore my work</a>
-            <a class="button secondary" href="#contact">Get in touch</a>
+  <main class="container" id="mainContent">
+    <section class="tab-panel active" id="home" role="tabpanel" aria-labelledby="tab-home">
+      <div class="hero">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Welcome to my personal website</div>
+            <h1>Your Name.</h1>
+            <h2>Finance Student</h2>
+            <p class="hero-copy">I am interested in financial markets, applied economics, and data-driven research. This is a space to share my academic journey, projects, and ideas.</p>
+            <div class="actions">
+              <button class="button primary" type="button" data-go="projects">Explore my work</button>
+              <button class="button secondary" type="button" data-go="contact">Get in touch</button>
+            </div>
           </div>
+          <aside class="profile-card" aria-label="Profile placeholder">
+            <div class="monogram">YN</div>
+            <p class="profile-caption">Curious mind. Analytical approach. Continuous learning.</p>
+          </aside>
         </div>
-        <aside class="profile-card" aria-label="Profile placeholder">
-          <div class="monogram">YN</div>
-          <p class="profile-caption">Curious mind. Analytical approach. Continuous learning.</p>
-        </aside>
       </div>
     </section>
 
-    <section id="about">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">A little introduction</div>
-          <h3 class="section-title">About Me</h3>
-          <p class="section-intro">A brief introduction to who I am and what I enjoy learning.</p>
-        </div>
+    <section class="tab-panel" id="about" role="tabpanel" aria-labelledby="tab-about" hidden>
+      <div class="page-section">
+        <div class="section-heading"><div class="eyebrow">A little introduction</div><h2 class="section-title">About Me</h2><p class="section-intro">A brief introduction to who I am and what I enjoy learning.</p></div>
         <div class="about-grid">
           <div class="about-copy">
             <p>Hello! I’m Your Name, a Finance student with an interest in understanding how financial markets and the broader economy work.</p>
             <p>I enjoy connecting economic theory with real-world data, exploring research questions, and developing practical skills in financial analysis. I believe good research starts with curiosity, clear thinking, and careful attention to evidence.</p>
             <p>This website is my digital portfolio — a place to document what I learn and the work I create along the way.</p>
           </div>
-          <div class="focus-card">
-            <h4>Areas of interest</h4>
-            <div class="tag-list">
-              <span class="tag">Financial Economics</span>
-              <span class="tag">Capital Markets</span>
-              <span class="tag">Econometrics</span>
-              <span class="tag">Macroeconomics</span>
-              <span class="tag">Data Analysis</span>
-              <span class="tag">Investment Research</span>
-            </div>
-          </div>
+          <div class="focus-card"><h3>Areas of interest</h3><div class="tag-list"><span class="tag">Financial Economics</span><span class="tag">Capital Markets</span><span class="tag">Econometrics</span><span class="tag">Macroeconomics</span><span class="tag">Data Analysis</span><span class="tag">Investment Research</span></div></div>
         </div>
       </div>
     </section>
 
-    <section class="soft" id="education">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">Academic background</div>
-          <h3 class="section-title">Education</h3>
-          <p class="section-intro">An overview of my academic background. Replace the sample details with your actual information.</p>
-        </div>
+    <section class="tab-panel" id="education" role="tabpanel" aria-labelledby="tab-education" hidden>
+      <div class="page-section soft">
+        <div class="section-heading"><div class="eyebrow">Academic background</div><h2 class="section-title">Education</h2><p class="section-intro">An overview of my academic background. Replace the sample details with your actual information.</p></div>
         <div class="timeline">
-          <article class="timeline-item">
-            <div class="timeline-date">[Year – Present]</div>
-            <div>
-              <h4>[University Name] — [Degree / Major]</h4>
-              <p>Relevant coursework: Corporate Finance, Investments, Financial Econometrics, and Macroeconomics.</p>
-            </div>
-          </article>
-          <article class="timeline-item">
-            <div class="timeline-date">[Previous Years]</div>
-            <div>
-              <h4>[Previous School / Qualification]</h4>
-              <p>Add a short description of your previous education, academic achievements, or activities.</p>
-            </div>
-          </article>
+          <article class="timeline-item"><div class="timeline-date">[Year – Present]</div><div><h3>[University Name] — [Degree / Major]</h3><p>Relevant coursework: Corporate Finance, Investments, Financial Econometrics, and Macroeconomics.</p></div></article>
+          <article class="timeline-item"><div class="timeline-date">[Previous Years]</div><div><h3>[Previous School / Qualification]</h3><p>Add a short description of your previous education, academic achievements, or activities.</p></div></article>
         </div>
       </div>
     </section>
 
-    <section id="projects">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">Selected work</div>
-          <h3 class="section-title">Projects</h3>
-          <p class="section-intro">A selection of academic projects and independent work. These sample entries are ready for you to customize.</p>
-        </div>
+    <section class="tab-panel" id="projects" role="tabpanel" aria-labelledby="tab-projects" hidden>
+      <div class="page-section">
+        <div class="section-heading"><div class="eyebrow">Selected work</div><h2 class="section-title">Projects</h2><p class="section-intro">A selection of academic projects and independent work. Edit these sample entries to describe your own work.</p></div>
         <div class="project-grid">
-          <article class="project-card">
-            <div class="project-number">PROJECT 01</div>
-            <h4>Macroeconomic Data Analysis</h4>
-            <p>An empirical study exploring relationships between macroeconomic indicators and financial market performance using time-series methods.</p>
-            <div class="project-meta">R · Time-series Econometrics · Research</div>
-          </article>
-          <article class="project-card">
-            <div class="project-number">PROJECT 02</div>
-            <h4>Investment & Portfolio Analysis</h4>
-            <p>An academic project examining risk, return, asset pricing models, and portfolio performance.</p>
-            <div class="project-meta">Investments · Asset Pricing · Excel</div>
-          </article>
-          <article class="project-card">
-            <div class="project-number">PROJECT 03</div>
-            <h4>Research Paper Review</h4>
-            <p>A structured review of empirical finance literature, focusing on research questions, methodology, findings, and limitations.</p>
-            <div class="project-meta">Literature Review · Financial Research</div>
-          </article>
-          <article class="project-card">
-            <div class="project-number">PROJECT 04</div>
-            <h4>Financial Markets Dashboard</h4>
-            <p>A planned data project to organize and visualize selected market and macroeconomic indicators.</p>
-            <div class="project-meta">Data Visualization · Financial Markets</div>
-          </article>
+          <article class="project-card"><div class="card-number">PROJECT 01</div><h3>Macroeconomic Data Analysis</h3><p>An empirical study exploring relationships between macroeconomic indicators and financial market performance using time-series methods.</p><div class="project-meta">R · Time-series Econometrics · Research</div></article>
+          <article class="project-card"><div class="card-number">PROJECT 02</div><h3>Investment &amp; Portfolio Analysis</h3><p>An academic project examining risk, return, asset pricing models, and portfolio performance.</p><div class="project-meta">Investments · Asset Pricing · Excel</div></article>
         </div>
       </div>
     </section>
 
-    <section class="soft" id="contact">
-      <div class="container">
-        <div class="contact-panel">
-          <div>
-            <h3>Let’s connect.</h3>
-            <p>I’m always open to learning, exchanging ideas, and discussing finance or research.</p>
-          </div>
-          <a class="button" href="mailto:your.email@example.com">Email me</a>
+    <section class="tab-panel" id="research" role="tabpanel" aria-labelledby="tab-research" hidden>
+      <div class="page-section soft">
+        <div class="section-heading"><div class="eyebrow">Academic interests</div><h2 class="section-title">Research &amp; Publications</h2><p class="section-intro">Research papers, working papers, literature reviews, and academic presentations.</p></div>
+        <div class="research-grid">
+          <article class="info-card"><div class="card-number">RESEARCH 01</div><h3>[Research title]</h3><p>Briefly describe the research question, data, methodology, and current status of this work.</p><div class="project-meta">[Year] · [Working paper / Course project]</div></article>
+          <article class="info-card"><div class="card-number">PUBLICATION 01</div><h3>[Paper or presentation title]</h3><p>Add the publication details, conference or course, and a link to the paper or slides if publicly available.</p><div class="project-meta">[Year] · [Publication / Presentation]</div></article>
         </div>
+        <p class="note">Only list work that you have actually completed or clearly label it as work in progress. Add links to PDFs or repositories when you are ready to share them.</p>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="skills" role="tabpanel" aria-labelledby="tab-skills" hidden>
+      <div class="page-section">
+        <div class="section-heading"><div class="eyebrow">Tools &amp; capabilities</div><h2 class="section-title">Skills</h2><p class="section-intro">A place to present your analytical, technical, and communication skills. Customize the list to reflect your current experience.</p></div>
+        <div class="skills-grid">
+          <article class="skill-card"><h3>Quantitative &amp; Research</h3><div class="tag-list"><span class="tag">Financial Econometrics</span><span class="tag">Time-series Analysis</span><span class="tag">Data Interpretation</span><span class="tag">Literature Review</span></div><p>Research methods and analytical topics.</p></article>
+          <article class="skill-card"><h3>Technical Tools</h3><div class="tag-list"><span class="tag">R / RStudio</span><span class="tag">Microsoft Excel</span><span class="tag">Data Visualization</span></div><p>Software and tools you use in coursework or projects.</p></article>
+          <article class="skill-card"><h3>Finance &amp; Economics</h3><div class="tag-list"><span class="tag">Financial Markets</span><span class="tag">Asset Pricing</span><span class="tag">Macroeconomics</span><span class="tag">Portfolio Analysis</span></div><p>Subject areas you have studied or are developing.</p></article>
+          <article class="skill-card"><h3>Professional Skills</h3><div class="tag-list"><span class="tag">Academic Writing</span><span class="tag">Presentation</span><span class="tag">Critical Thinking</span></div><p>Communication and problem-solving capabilities.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="contact" role="tabpanel" aria-labelledby="tab-contact" hidden>
+      <div class="page-section">
+        <div class="section-heading"><div class="eyebrow">Let's connect</div><h2 class="section-title">Contact</h2><p class="section-intro">For academic discussions, project collaboration, or professional opportunities.</p></div>
+        <div class="contact-panel"><div><h2>Get in touch.</h2><p>Feel free to reach out by email.</p></div><a class="button" href="mailto:your.email@example.com">your.email@example.com</a></div>
+        <p class="note">Replace the sample email address with an address you are comfortable sharing publicly.</p>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> Your Name. All rights reserved.</span>
-      <span>Designed with simplicity and purpose.</span>
-    </div>
-  </footer>
+  <footer><div class="container footer-inner"><span>© <span id="year"></span> Your Name. All rights reserved.</span><span>Built with HTML, CSS &amp; JavaScript.</span></div></footer>
 
   <script>
-    const menuButton = document.getElementById('menuButton');
+    const tabButtons = [...document.querySelectorAll('[data-tab]')];
+    const panels = [...document.querySelectorAll('.tab-panel')];
     const navLinks = document.getElementById('navLinks');
+    const menuButton = document.getElementById('menuButton');
 
-    menuButton.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', String(isOpen));
-      menuButton.textContent = isOpen ? 'Close' : 'Menu';
-    });
+    function showTab(tabName, updateHash = true) {
+      const target = document.getElementById(tabName);
+      if (!target || !target.classList.contains('tab-panel')) tabName = 'home';
+      panels.forEach(panel => {
+        const active = panel.id === tabName;
+        panel.classList.toggle('active', active);
+        panel.hidden = !active;
+      });
+      tabButtons.forEach(button => {
+        const active = button.dataset.tab === tabName;
+        button.setAttribute('aria-selected', String(active));
+        button.tabIndex = active ? 0 : -1;
+      });
+      navLinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.textContent = 'Menu ☰';
+      if (updateHash) history.replaceState(null, '', '#' + tabName);
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
 
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        menuButton.setAttribute('aria-expanded', 'false');
-        menuButton.textContent = 'Menu';
+    tabButtons.forEach((button, index) => {
+      button.addEventListener('click', () => showTab(button.dataset.tab));
+      button.addEventListener('keydown', event => {
+        if (!['ArrowRight','ArrowLeft','Home','End'].includes(event.key)) return;
+        event.preventDefault();
+        let next = index;
+        if (event.key === 'ArrowRight') next = (index + 1) % tabButtons.length;
+        if (event.key === 'ArrowLeft') next = (index - 1 + tabButtons.length) % tabButtons.length;
+        if (event.key === 'Home') next = 0;
+        if (event.key === 'End') next = tabButtons.length - 1;
+        tabButtons[next].focus();
+        showTab(tabButtons[next].dataset.tab);
       });
     });
-
+    document.querySelectorAll('[data-go]').forEach(button => {
+      button.addEventListener('click', () => showTab(button.dataset.go));
+    });
+    document.querySelector('[data-tab-link="home"]').addEventListener('click', event => {
+      event.preventDefault(); showTab('home');
+    });
+    menuButton.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.textContent = open ? 'Close ×' : 'Menu ☰';
+    });
+    window.addEventListener('hashchange', () => showTab(location.hash.slice(1) || 'home', false));
     document.getElementById('year').textContent = new Date().getFullYear();
+    showTab(location.hash.slice(1) || 'home', false);
   </script>
 </body>
 </html>
